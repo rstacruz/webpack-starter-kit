@@ -1,0 +1,47 @@
+@import 'normalize.css';
+
+:root {
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  --gray: #8090a0;
+}
+
+html {
+  background: #f8f8f8;
+  font-family: var(--sans);
+  color: #505060;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.webpack-welcome {
+  background: white;
+  padding: 48px 24px;
+  max-width: 200px;
+  border-radius: 3px;
+  box-shadow: 0 4px 8px color(black alpha(5%));
+  margin: 30vh auto 32px auto;
+  text-align: center;
+
+  & > .icon::before {
+    content: '';
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+
+    background: url('../icon.png') 0 0 / 32px 32px no-repeat;
+  }
+
+  & > p {
+    margin: 16px 0 0 0;
+    padding: 0;
+  }
+}
+
+.webpack-message {
+  text-align: center;
+  font-size: 0.86em;
+  color: var(--gray);
+}
