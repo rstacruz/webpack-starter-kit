@@ -41,8 +41,15 @@ html {
   }
 }
 
-.webpack-message {
-  text-align: center;
-  font-size: 0.86em;
-  color: var(--gray);
+.webpack-welcome {
+  opacity: 0;
+  transform: scale(0.9);
+  transition:
+    opacity 300ms ease-out,
+    transform 300ms ease-out;
+
+  &.-show {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
