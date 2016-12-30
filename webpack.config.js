@@ -6,6 +6,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const LiveReloadPlugin = require('webpack-livereload-plugin')
 
 const DEBUG = process.env.NODE_ENV !== 'production'
+const SRC = `./src`
 
 module.exports = {
   cache: true,
@@ -14,8 +15,8 @@ module.exports = {
 
   entry: {
     // JavaScript
-    'assets/app': './src/js/app.js',
-    'assets/app-css': './src/css/app.js'
+    'assets/app': `${SRC}/js/app.js`,
+    'assets/app-css': `${SRC}/css/app.js`
   },
 
   output: {
@@ -62,10 +63,11 @@ module.exports = {
     new CleanWebpackPlugin(['public']),
     new ExtractTextPlugin('[name].css', { allChunks: true }),
     new CopyWebpackPlugin([
-      { from: 'assets', to: '.' }
-    ])
+      { from: `${SRC}/assets`, to: './assets' },
+      { from: `${SRC}/html`, to: '.' },
+    ]),
   ].concat(DEBUG ? [
-    new LiveReloadPlugin({ appendScriptTag: true })
+    new LiveReloadPlugin({ appendScriptTag: true }),
   ] : []),
 
   // Best trade-off with compatibility and speed
