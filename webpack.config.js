@@ -62,6 +62,9 @@ module.exports = {
     // allChunks will preserve source maps
     new CleanWebpackPlugin(['public']),
     new ExtractTextPlugin('[name].css', { allChunks: true }),
+    new webpack.DefinePlugin({
+      'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development') }
+    }),
     new CopyWebpackPlugin([
       { from: `${SRC}/assets`, to: './assets' },
       { from: `${SRC}/html`, to: '.' },
