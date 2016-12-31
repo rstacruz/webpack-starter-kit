@@ -2,9 +2,10 @@
 
 > Baseline configuration for Webpack
 
-Takes HTML, CSS, and JS files (`web/`) and compiles them (`public/`) using [Webpack].
+Takes HTML, CSS, and JS files (`web/`) and compiles them (`public/`) using [Webpack]. This is the [webpack.config.js] that I usually start with in new projects.
 
 [Webpack]: https://webpack.github.io/
+[webpack.config.js]: webpack.config.js
 
 ## Features
 
@@ -14,6 +15,8 @@ Takes HTML, CSS, and JS files (`web/`) and compiles them (`public/`) using [Webp
 - Images
 - Webpack dev server
 - LiveReload
+
+Not present: tests, React, hot module reloading
 
 [cssnext]: http://cssnext.io/
 
