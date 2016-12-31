@@ -6,7 +6,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const LiveReloadPlugin = require('webpack-livereload-plugin')
 
 const DEBUG = process.env.NODE_ENV !== 'production'
-const SRC = `./src`
+const SRC = `./web`
 
 module.exports = {
   cache: true,
