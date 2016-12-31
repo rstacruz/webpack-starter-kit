@@ -15,10 +15,12 @@ Takes HTML, CSS, and JS files (`web/`) and compiles them (`public/`) using [Webp
 - Images
 - Webpack dev server
 - LiveReload
+- [Stylelint]
 
 Not present: tests, React, hot module reloading
 
 [cssnext]: http://cssnext.io/
+[Stylelint]: http://stylelint.io/
 
 ## Installation
 
