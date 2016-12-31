@@ -16,6 +16,8 @@ module.exports = {
   entry: {
     // JavaScript
     'assets/app': `${SRC}/js/app.js`,
+
+    // CSS
     'assets/app-css': `${SRC}/css/app.js`
   },
 
