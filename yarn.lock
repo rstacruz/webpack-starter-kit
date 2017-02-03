@@ -1216,10 +1216,6 @@ doiuse@^2.4.1:
     through2 "^0.6.3"
     yargs "^3.5.4"
 
-dom-to-image@2.5.2:
-  version "2.5.2"
-  resolved "https://registry.yarnpkg.com/dom-to-image/-/dom-to-image-2.5.2.tgz#6476b9f43c27c00b76ce4f164d20e5eeab032497"
-
 domain-browser@^1.1.1:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/domain-browser/-/domain-browser-1.1.7.tgz#867aa4b093faa05f1de08c06f4d7b21fdf8698bc"

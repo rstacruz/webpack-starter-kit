@@ -53,7 +53,7 @@ module.exports = {
   },
 
   postcss: [
-    require('stylelint')({ extends: [ 'stylelint-config-standard' ] }),
+    require('stylelint')(),
     require('postcss-import')(),
     require('postcss-cssnext')(),
   ].concat(DEBUG ? [
