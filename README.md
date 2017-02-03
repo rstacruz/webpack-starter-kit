@@ -17,6 +17,10 @@ Takes HTML, CSS, and JS files (`web/`) and compiles them (`public/`) using [Webp
 - LiveReload
 - [Stylelint]
 
+Optional features (see [EXTRAS.md](EXTRAS.md)):
+
+- Sass
+
 Not present: tests, React, hot module reloading
 
 [cssnext]: http://cssnext.io/
