@@ -1,6 +1,4 @@
 {
-  "name": "my-project",
-  "version": "1.0.0",
   "scripts": {
     "build": "env NODE_ENV=production webpack --progress --colors -p",
     "watch": "env NODE_ENV=development webpack --progress --colors --watch -p",
