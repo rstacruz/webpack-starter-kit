@@ -80,4 +80,9 @@ module.exports = {
   devtool: DEBUG ? 'cheap-module-eval-source-map' : 'hidden-source-map',
 
   debug: DEBUG ? true : false,
+
+  // https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/35
+  stats: {
+    children: false,
+  },
 }

@@ -1,17 +1,12 @@
 {
-  "name": "text-layout",
+  "name": "my-project",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
     "build": "env NODE_ENV=production webpack --progress --colors -p",
     "watch": "env NODE_ENV=development webpack --progress --colors --watch -p",
     "start": "env NODE_ENV=development webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "Rico Sta. Cruz <rico@ricostacruz.com> (http://ricostacruz.com)",
-  "license": "MIT",
   "dependencies": {
     "babel-core": "6.21.0",
     "babel-loader": "6.2.10",
