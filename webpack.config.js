@@ -29,44 +29,52 @@ module.exports = {
   },
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.css$/,
-        loader: DEBUG
-          ? ExtractTextPlugin.extract('style-loader', 'css-loader?-url&sourceMap&importLoaders=1!postcss-loader?sourceMap=inline')
-          : ExtractTextPlugin.extract('style-loader', 'css-loader?-url!postcss-loader')
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: DEBUG
+            ? [
+              'css-loader?-url&sourceMap&importLoaders=1',
+              'postcss-loader?sourceMap=inline'
+            ]
+            : [
+              'css-loader?-url',
+              'postcss-loader'
+            ]
+        })
       },
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['env'],
-          cacheDirectory: true
-        }
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['env'],
+              cacheDirectory: true
+            }
+          }
+        ]
       },
     ],
   },
 
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['.js', '.jsx'],
   },
-
-  postcss: [
-    require('stylelint')(),
-    require('postcss-import')(),
-    require('postcss-cssnext')(),
-  ].concat(DEBUG ? [
-    require('postcss-reporter')(),
-    require('postcss-browser-reporter')(),
-  ] : []),
 
   plugins: [
     new CleanWebpackPlugin(['public']),
-    // allChunks will preserve source maps
-    new ExtractTextPlugin('[name].css', { allChunks: true }),
+    new ExtractTextPlugin({
+      filename: '[name].css',
+      allChunks: true // preserve source maps
+    }),
     new webpack.DefinePlugin({
-      'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development') }
+      'process.env': {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development')
+      }
     }),
     new CopyWebpackPlugin([
       { from: `${SRC}/assets`, to: './assets' },
@@ -78,8 +86,6 @@ module.exports = {
 
   // Best trade-off with compatibility and speed
   devtool: DEBUG ? 'cheap-module-eval-source-map' : 'hidden-source-map',
-
-  debug: DEBUG ? true : false,
 
   // https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/35
   stats: {
