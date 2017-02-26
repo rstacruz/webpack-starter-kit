@@ -34,15 +34,10 @@ module.exports = {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: DEBUG
-            ? [
-              'css-loader?-url&sourceMap&importLoaders=1',
-              'postcss-loader?sourceMap=inline'
-            ]
-            : [
-              'css-loader?-url',
-              'postcss-loader'
-            ]
+          use: [
+            `css-loader?-url${DEBUG ? '&sourceMap&importLoaders=1' : ''}`,
+            `postcss-loader${DEBUG ? '?sourceMap=inline' : ''}`
+          ]
         })
       },
       {
@@ -66,26 +61,41 @@ module.exports = {
   },
 
   plugins: [
+    // Delete old files when compiling
     new CleanWebpackPlugin(['public']),
+
+    // Extract to .css
     new ExtractTextPlugin({
       filename: '[name].css',
       allChunks: true // preserve source maps
     }),
+
+    // Compress React (and others)
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development')
       }
     }),
+
+    // Copying files directly
     new CopyWebpackPlugin([
       { from: `${SRC}/assets`, to: './assets' },
       { from: `${SRC}/html`, to: '.' },
     ]),
   ].concat(DEBUG ? [
-    new LiveReloadPlugin({ appendScriptTag: true }),
+    // LiveReload in development
+    new LiveReloadPlugin({
+      appendScriptTag: true
+    }),
+
+    // Debug mode for old webpack plugins
+    new webpack.LoaderOptionsPlugin({
+      debug: true
+    })
   ] : []),
 
   // Best trade-off with compatibility and speed
-  devtool: DEBUG ? 'cheap-module-eval-source-map' : 'hidden-source-map',
+  devtool: DEBUG ? 'cheap-module-source-map' : 'hidden-source-map',
 
   // https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/35
   stats: {
