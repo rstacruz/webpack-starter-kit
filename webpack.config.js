@@ -71,11 +71,7 @@ module.exports = {
     }),
 
     // Compress React (and others)
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development')
-      }
-    }),
+    new webpack.EnvironmentPlugin(['NODE_ENV']),
 
     // Copying files directly
     new CopyWebpackPlugin([
