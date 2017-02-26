@@ -71,7 +71,9 @@ module.exports = {
     }),
 
     // Compress React (and others)
-    new webpack.EnvironmentPlugin(['NODE_ENV']),
+    new webpack.EnvironmentPlugin({
+      NODE_ENV: 'development'
+    }),
 
     // Copying files directly
     new CopyWebpackPlugin([
