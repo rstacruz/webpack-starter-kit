@@ -93,7 +93,7 @@ module.exports = {
   ] : []),
 
   // Best trade-off with compatibility and speed
-  devtool: DEBUG ? 'cheap-module-source-map' : 'hidden-source-map',
+  devtool: DEBUG ? 'source-map' : 'hidden-source-map',
 
   // https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/35
   stats: {
