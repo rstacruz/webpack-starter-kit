@@ -92,7 +92,7 @@ module.exports = {
     })
   ] : []),
 
-  // Best trade-off with compatibility and speed
+  // Hide source maps in production (no sourceMappingURL)
   devtool: DEBUG ? 'source-map' : 'hidden-source-map',
 
   // https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/35
