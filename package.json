@@ -1,8 +1,8 @@
 {
   "scripts": {
-    "build": "env NODE_ENV=production webpack --progress --colors -p",
-    "watch": "env NODE_ENV=development webpack --progress --colors --watch -p",
-    "start": "env NODE_ENV=development webpack-dev-server",
+    "build": "webpack --progress --colors -p",
+    "watch": "webpack --progress --colors --watch",
+    "start": "webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
