@@ -35,8 +35,24 @@ module.exports = {
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
-            `css-loader?-url${DEBUG ? '&sourceMap&importLoaders=1' : ''}`,
-            `postcss-loader${DEBUG ? '?sourceMap=inline' : ''}`
+            {
+              loader: 'css-loader',
+              options: DEBUG
+                ? {
+                  url: false,
+                  sourceMap: true,
+                  importLoaders: 1
+                } :
+                {
+                  url: false
+                }
+            },
+            {
+              loader: 'postcss-loader',
+              options: DEBUG
+                ? { sourceMap: 'inline' }
+                : {}
+            },
           ]
         })
       },
