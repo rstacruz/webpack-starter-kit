@@ -116,5 +116,6 @@ module.exports = {
   stats: {
     children: false,
     chunks: false,
+    assetsSort: 'name',
   },
 }
