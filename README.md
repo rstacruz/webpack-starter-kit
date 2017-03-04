@@ -9,31 +9,37 @@ Takes HTML, CSS, and JS files (`web/`) and compiles them (`public/`) using [Webp
 
 ## Features
 
-- JavaScript via Babel
-- CSS with [cssnext]
-- HTML
-- Images
-- Webpack dev server
-- LiveReload
-- [Stylelint]
+You get these out of the box:
+
+- Modern JavaScript ([Babel])
+- Modern CSS ([PostCSS] & [cssnext])
+- Development server ([WebpackDevServer])
+- Automatic browser reloading ([LiveReloadPlugin])
+- CSS linting ([Stylelint])
+- Plain HTML & images
 
 Optional features (see [EXTRAS.md](_extras/EXTRAS.md)):
 
 - Sass
 - React hot module reloading
 
-Not present: tests
-
+[Babel]: http://babeljs.io/
+[PostCSS]: http://postcss.org/
 [cssnext]: http://cssnext.io/
 [Stylelint]: http://stylelint.io/
+[WebpackDevServer]: https://webpack.js.org/configuration/dev-server/
+[LiveReloadPlugin]: https://www.npmjs.com/package/webpack-livereload-plugin
 
 ## Installation
 
+You can use the [automated installer script](_extras/install.sh) to unpack the files:
+
 ```sh
-mkdir my-project
-cd my-project
+# Extracts to the current directory
 curl -sSL https://raw.githubusercontent.com/rstacruz/webpack-starter-kit/master/_extras/install.sh > /tmp/webpack-starter-kit.sh; bash /tmp/webpack-starter-kit.sh
 ```
+
+If you're allergic to downloaded Bash scripts, check the [simple installer](_extras/simple_install.sh).
 
 ## Updates
 
