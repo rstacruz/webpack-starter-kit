@@ -113,9 +113,17 @@ module.exports = {
   devtool: DEBUG ? 'source-map' : 'hidden-source-map',
 
   // https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/35
-  stats: {
+  stats: stats(),
+
+  devServer: {
+    stats: stats()
+  },
+}
+
+function stats () {
+  return {
     children: false,
     chunks: false,
     assetsSort: 'name',
-  },
+  }
 }
