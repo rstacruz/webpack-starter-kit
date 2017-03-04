@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+#
+# This is the webpack-starter-kit installer script.
+# For a simpler version (doesn't let you pick source/dest paths), see
+# simple_install.sh.
+#
 set -o errexit pipefail
 
 if ! which yarn >/dev/null; then
@@ -6,7 +11,7 @@ if ! which yarn >/dev/null; then
   exit 1
 fi
 
-TMPFILE=`mktemp`
+TMPFILE="$(mktemp)"
 SOURCE="https://github.com/rstacruz/webpack-starter-kit/archive/master.tar.gz"
 
 echo -n "Source path [./web]: "
@@ -17,19 +22,11 @@ echo -n "Destination path [./public]: "
 read DEST_PATH
 [ -z "$DEST_PATH" ] && DEST_PATH="./public"
 
-# traperr() {
-#   echo "\n==> Cleaning up"
-#   rm $TMPFILE
-# }
-
-# set -o errtrace
-# trap traperr ERR
-
 echo -e "\n==> Downloading $SOURCE"
 curl -sSL "$SOURCE" > "$TMPFILE"
 
-echo -e "\n==> Extracting configs"
-cat "$TMPFILE" | tar zxv --strip-components=1 \
+echo -e "\n==> Extracting to ./"
+ tar zxvf "$TMPFILE" --strip-components=1 \
  --include="*/*.config.js" \
  --include="*/package.json" \
  --include="*/yarn.lock" \
@@ -44,17 +41,19 @@ cat webpack.config.js \
   > webpack.config.js_
 mv webpack.config.js_ webpack.config.js
 
-echo -e "\n==> Extracting $SRC_PATH"
+echo -e "\n==> Extracting to $SRC_PATH"
 mkdir -p "$SRC_PATH"
-cd "$SRC_PATH"
+(
+  cd "$SRC_PATH"
+  tar zxvf "$TMPFILE" --strip-components=2 \
+   --include="*/web"
+)
 
-cat "$TMPFILE" | tar zxv --strip-components=2 \
- --include="*/web"
+rm "$TMPFILE"
 
-echo -e "\n==> Updating gitignore"
+echo -e "\n==> Updating ./.gitignore"
 echo "$DEST_PATH" >> .gitignore
 echo "node_modules" >> .gitignore
 
 echo -e "\n==> Running yarn"
-cd -
 yarn
