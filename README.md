@@ -34,9 +34,13 @@ cd my-project
 curl -sSL https://raw.githubusercontent.com/rstacruz/webpack-starter-kit/master/_extras/install.sh | bash
 ```
 
+## Updates
+
+This kit is updated whenever I find something good to add; see [HISTORY.md](HISTORY.md) for a change log.
+
 ## Thanks
 
-**webpack-starter-kit** © 2016+, Rico Sta. Cruz. Released under the [MIT] License.<br>
+**webpack-starter-kit** © 2016-2017, Rico Sta. Cruz. Released under the [MIT] License.<br>
 Authored and maintained by Rico Sta. Cruz with help from contributors ([list][contributors]).
 
 > [ricostacruz.com](http://ricostacruz.com) &nbsp;&middot;&nbsp;
