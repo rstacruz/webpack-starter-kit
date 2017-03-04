@@ -1,4 +1,8 @@
-## Sass support
+Extra features
+==============
+
+Sass support
+------------
 
 Install sass-loader:
 
@@ -6,25 +10,29 @@ Install sass-loader:
 yarn add --exact sass-loader
 ```
 
-Add `sass-loader` in `module.loaders`:
+Add `sass-loader` in `module.rules[0].use`'s ExtractTextPlugin `use` block:
 
-```js
-module: {
-  loaders: [
-    {
-      test: /\.scss$/,
-      loader: DEBUG
-        ? ExtractTextPlugin.extract('style-loader', 'css-loader?-url&sourceMap&importLoaders=1!postcss-loader?sourceMap=inline!sass-loader?sourceMap')
-        : ExtractTextPlugin.extract('style-loader', 'css-loader?-url!postcss-loader!sass-loader')
-    }
-  ]
-}
+```diff
+  use: ExtractTextPlugin.extract({
+    fallback: 'style-loader',
+    use: [
+      {
+        loader: 'css-loader',
+        /* snip */
+      },
++     /* Right below the postcss-loader block */
++     {
++       loader: 'sass-loader',
++       options: {
++         includePaths: join(__dirname, 'node_modules'),
++         outputStyle: DEBUG ? 'nested' : 'compressed'
++       }
++     }
 ```
 
-Configure `sassLoader`:
+In `postcss.config.js`, disable Stylelint because there's no way for it to check for lint violations /before/ Sass processes it.
 
-```js
-sassLoader: {
-  includePaths: join(__dirname, 'node_modules'),
-  outputStyle: DEBUG ? 'nested' : 'compressed'
-},
+React Hot module reloading
+--------------------------
+
+See: https://webpack.js.org/guides/hmr-react/
