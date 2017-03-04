@@ -6,7 +6,8 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const LiveReloadPlugin = require('webpack-livereload-plugin')
 
 const DEBUG = process.env.NODE_ENV !== 'production'
-const SRC = `./web`
+const SRC = './web'
+const DEST = './public'
 
 module.exports = {
   cache: true,
@@ -22,7 +23,7 @@ module.exports = {
   },
 
   output: {
-    path: join(__dirname, 'public'),
+    path: DEST,
     filename: '[name].js',
     pathinfo: DEBUG ? true : false,
     devtoolModuleFilenameTemplate: 'webpack:///[absolute-resource-path]'
