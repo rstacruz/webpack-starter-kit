@@ -1,5 +1,5 @@
 const webpack = require('webpack')
-const join = require('path').join
+const resolve = require('path').resolve
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
@@ -16,14 +16,14 @@ module.exports = {
 
   entry: {
     // JavaScript
-    'assets/app': `${SRC}/js/app.js`,
+    'assets/js/app': `${SRC}/js/app.js`,
 
     // CSS
-    'assets/app-css': `${SRC}/css/app.js`
+    'assets/css/app': `${SRC}/css/app.js`
   },
 
   output: {
-    path: DEST,
+    path: resolve(__dirname, DEST),
     filename: '[name].js',
     pathinfo: DEBUG ? true : false,
     devtoolModuleFilenameTemplate: 'webpack:///[absolute-resource-path]'
