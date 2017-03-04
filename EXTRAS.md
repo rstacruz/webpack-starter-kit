@@ -36,3 +36,37 @@ React Hot module reloading
 --------------------------
 
 See: https://webpack.js.org/guides/hmr-react/
+
+Phoenix
+-------
+
+To use this with [Phoenix](http://www.phoenixframework.org), take note of a few things.
+
+`webpack.config.js` - You need to change the *source* and *destination* paths.
+
+```js
+/* webpack.config.js */
+
+const SRC = './web/static'             // Phoenix 1.2 and below
+const SRC = './lib/MYAPP/web/static'   // Phoenix 1.3+
+const DEST = './priv/static'
+```
+
+`config/dev.exs` - You need to change watchers to use Webpack.
+
+```diff
+ config :myapp, Myapp.Endpoint,
+   #...snip...
++  watchers: [
++    node: [
++      "node_modules/webpack/bin/webpack", "--watch", "--progress", "--colors",
++      cd: Path.expand("../", __DIR__)
++    ]
++  ]
+```
+
+In your deployment script, you need to use `npm run build`.
+
+```ex
+# It depends on how you deploy your app.
+```
