@@ -115,5 +115,6 @@ module.exports = {
   // https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/35
   stats: {
     children: false,
+    chunks: false,
   },
 }
