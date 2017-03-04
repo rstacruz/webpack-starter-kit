@@ -45,9 +45,13 @@ To use this with [Phoenix](http://www.phoenixframework.org), take note of a few 
 You need to change the *source* and *destination* paths. You can just enter the following paths in the `install.sh` prompts.
 
 ```js
-const SRC = './web/static'             // Phoenix 1.2 and below
-const SRC = './lib/MYAPP/web/static'   // Phoenix 1.3+
+// Phoenix 1.2 and below
+const SRC = './web/static'
 const DEST = './priv/static'
+
+// Phoenix 1.3 - be sure to do this in /assets/
+const SRC = './'
+const DEST = '../priv/static'
 ```
 
 `config/dev.exs` - You need to change watchers to use Webpack.
