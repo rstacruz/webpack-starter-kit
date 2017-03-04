@@ -79,7 +79,7 @@ module.exports = {
 
   plugins: [
     // Delete old files when compiling
-    new CleanWebpackPlugin(['public']),
+    new CleanWebpackPlugin([ DEST ]),
 
     // Extract to .css
     new ExtractTextPlugin({
