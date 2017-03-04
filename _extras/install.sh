@@ -56,4 +56,5 @@ echo "$DEST_PATH" >> .gitignore
 echo "node_modules" >> .gitignore
 
 echo -e "\n==> Running yarn"
+cd -
 yarn

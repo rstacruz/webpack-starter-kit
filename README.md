@@ -32,7 +32,7 @@ Not present: tests
 ```sh
 mkdir my-project
 cd my-project
-curl -sSL https://raw.githubusercontent.com/rstacruz/webpack-starter-kit/master/_extras/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/rstacruz/webpack-starter-kit/master/_extras/install.sh > /tmp/webpack-starter-kit.sh; bash /tmp/webpack-starter-kit.sh
 ```
 
 ## Updates
