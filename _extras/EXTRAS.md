@@ -32,11 +32,6 @@ Add `sass-loader` in `module.rules[0].use`'s ExtractTextPlugin `use` block:
 
 In `postcss.config.js`, disable Stylelint because there's no way for it to check for lint violations /before/ Sass processes it.
 
-React Hot module reloading
---------------------------
-
-See: https://webpack.js.org/guides/hmr-react/
-
 Phoenix
 -------
 
@@ -72,3 +67,17 @@ In your deployment script, you need to use `npm run build`.
 ```ex
 # It depends on how you deploy your app.
 ```
+
+React
+-----
+
+```
+yarn add --exact babel-preset-react react
+# edit webpack.config.js to add 'react' preset
+```
+
+React Hot module reloading
+--------------------------
+
+See: https://webpack.js.org/guides/hmr-react/
+
