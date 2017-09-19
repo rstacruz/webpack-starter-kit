@@ -66,7 +66,9 @@ module.exports = function getConfig (opts) {
             {
               loader: 'babel-loader',
               options: {
-                cacheDirectory: true
+                cacheDirectory: true,
+                presets: ['env'],
+                ...(opts.babel || {})
               }
             }
           ]
