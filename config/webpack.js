@@ -49,9 +49,12 @@ module.exports = function getConfig (opts) {
               },
               {
                 loader: 'postcss-loader',
-                options: DEBUG
-                  ? { sourceMap: 'inline' }
-                  : {}
+                options: {
+                  sourceMap: DEBUG ? 'inline' : undefined,
+                  config: {
+                    path: __dirname
+                  }
+                }
               },
             ]
           })
