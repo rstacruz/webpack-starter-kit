@@ -9,14 +9,10 @@ module.exports = function getConfig (opts) {
 
   const DEBUG = process.env.NODE_ENV !== 'production'
 
-  const entries = ENTRIES.reduce((result, { from, to }) => {
-    return { ...result, [to]: `${SRC}/${from}` }
-  }, {})
-
   const config = {
     cache: true,
     context: ROOT,
-    entry: entries,
+    entry: ENTRIES,
 
     output: {
       path: resolve(ROOT, DEST),
@@ -88,7 +84,7 @@ module.exports = function getConfig (opts) {
       }),
 
       // Copying files directly
-      new CopyWebpackPlugin(COPY.map(({ from, to }) => ({ from: `${SRC}/${from}`, to })))
+      new CopyWebpackPlugin(COPY)
     ],
 
     // Hide source maps in production (no sourceMappingURL)

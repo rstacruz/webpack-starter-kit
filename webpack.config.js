@@ -1,15 +1,14 @@
 module.exports = require('./config/webpack')({
   root: __dirname,
-  source: './web',
   destination: './public',
 
-  entries: [
-    { to: 'assets/js/app', from: 'js/app.js' }, // JS
-    { to: 'assets/css/app', from: 'css/app.js' } // CSS
-  ],
+  entries: {
+    'assets/js/app': './web/js/app.js', // JS
+    'assets/css/app': './web/css/app.js' // CSS
+  },
 
   copy: [
-    { from: 'assets', to: 'assets' },
-    { from: 'html', to: '.' }
+    { from: 'web/assets', to: 'assets' },
+    { from: 'web/html', to: '.' }
   ]
 })
