@@ -25,7 +25,7 @@ module.exports = {
   output: {
     path: resolve(__dirname, DEST),
     filename: '[name].js',
-    pathinfo: DEBUG ? true : false,
+    pathinfo: !!DEBUG,
     devtoolModuleFilenameTemplate: 'webpack:///[absolute-resource-path]'
   },
 
@@ -43,17 +43,15 @@ module.exports = {
                   url: false,
                   sourceMap: true,
                   importLoaders: 1
-                } :
-                {
+                }
+                : {
                   url: false
                 }
             },
             {
               loader: 'postcss-loader',
-              options: DEBUG
-                ? { sourceMap: 'inline' }
-                : {}
-            },
+              options: DEBUG ? { sourceMap: 'inline' } : {}
+            }
           ]
         })
       },
@@ -69,17 +67,17 @@ module.exports = {
             }
           }
         ]
-      },
-    ],
+      }
+    ]
   },
 
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx']
   },
 
   plugins: [
     // Delete old files when compiling
-    new CleanWebpackPlugin([ DEST ]),
+    new CleanWebpackPlugin([DEST]),
 
     // Extract to .css
     new ExtractTextPlugin({
@@ -95,19 +93,23 @@ module.exports = {
     // Copying files directly
     new CopyWebpackPlugin([
       { from: `${SRC}/assets`, to: './assets' },
-      { from: `${SRC}/html`, to: '.' },
-    ]),
-  ].concat(DEBUG ? [
-    // LiveReload in development
-    new LiveReloadPlugin({
-      appendScriptTag: true
-    }),
+      { from: `${SRC}/html`, to: '.' }
+    ])
+  ].concat(
+    DEBUG
+      ? [
+        // LiveReload in development
+        new LiveReloadPlugin({
+          appendScriptTag: true
+        }),
 
-    // Debug mode for old webpack plugins
-    new webpack.LoaderOptionsPlugin({
-      debug: true
-    })
-  ] : []),
+        // Debug mode for old webpack plugins
+        new webpack.LoaderOptionsPlugin({
+          debug: true
+        })
+      ]
+      : []
+  ),
 
   // Hide source maps in production (no sourceMappingURL)
   devtool: DEBUG ? 'source-map' : 'hidden-source-map',
@@ -117,13 +119,13 @@ module.exports = {
 
   devServer: {
     stats: stats()
-  },
+  }
 }
 
 function stats () {
   return {
     children: false,
     chunks: false,
-    assetsSort: 'name',
+    assetsSort: 'name'
   }
 }
