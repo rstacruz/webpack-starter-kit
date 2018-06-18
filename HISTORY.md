@@ -6,6 +6,7 @@
 - Update npm packages.
 - Upgrade from Webpack 3.6 to 4.12.
 - Use [sanitize.css] instead of [normalize.css].
+- Removed bash install script in favor of a `wget` one-liner.
 
 [sanitize.css]: https://yarn.pm/sanitize.css
 [normalize.css]: https://yarn.pm/normalize.css
