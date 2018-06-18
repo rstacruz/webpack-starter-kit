@@ -8,6 +8,7 @@ const LiveReloadPlugin = require('webpack-livereload-plugin')
 const DEBUG = process.env.NODE_ENV !== 'production'
 const SRC = './web'
 const DEST = './public'
+const POLYFILLS = DEBUG ? [] : ['babel-polyfill']
 
 module.exports = {
   cache: true,
@@ -16,10 +17,10 @@ module.exports = {
 
   entry: {
     // JavaScript
-    'assets/js/app': `${SRC}/js/app.js`,
+    'assets/js/app': [...POLYFILLS, `${SRC}/js/app.js`],
 
     // CSS
-    'assets/css/app': `${SRC}/css/app.js`
+    'assets/css/app': [...POLYFILLS, `${SRC}/css/app.js`]
   },
 
   output: {
@@ -40,13 +41,13 @@ module.exports = {
               loader: 'css-loader',
               options: DEBUG
                 ? {
-                  url: false,
-                  sourceMap: true,
-                  importLoaders: 1
-                }
+                    url: false,
+                    sourceMap: true,
+                    importLoaders: 1
+                  }
                 : {
-                  url: false
-                }
+                    url: false
+                  }
             },
             {
               loader: 'postcss-loader',
@@ -98,16 +99,16 @@ module.exports = {
   ].concat(
     DEBUG
       ? [
-        // LiveReload in development
-        new LiveReloadPlugin({
-          appendScriptTag: true
-        }),
+          // LiveReload in development
+          new LiveReloadPlugin({
+            appendScriptTag: true
+          }),
 
-        // Debug mode for old webpack plugins
-        new webpack.LoaderOptionsPlugin({
-          debug: true
-        })
-      ]
+          // Debug mode for old webpack plugins
+          new webpack.LoaderOptionsPlugin({
+            debug: true
+          })
+        ]
       : []
   ),
 
@@ -122,7 +123,7 @@ module.exports = {
   }
 }
 
-function stats () {
+function stats() {
   return {
     children: false,
     chunks: false,
