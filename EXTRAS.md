@@ -35,7 +35,13 @@ In `postcss.config.js`, disable Stylelint because there's no way for it to check
 Phoenix
 -------
 
-To use this with [Phoenix](http://www.phoenixframework.org), take note of a few things.
+To use this with [Phoenix](http://www.phoenixframework.org), take note of a few things. You want to put this in your project's `/assets/` folder.
+
+```bash
+mkdir assets
+cd assets
+wget https://raw.githubusercontent.com/rstacruz/webpack-starter-kit/master/{yarn.lock,package.json,postcss.config.js,webpack.config.js,.stylelintrc}
+```
 
 You need to change the *source* and *destination* paths. You can just enter the following paths in the `install.sh` prompts.
 
@@ -47,7 +53,6 @@ const DEST = '../priv/static'
 // Phoenix 1.2 and below
 const SRC = './web/static'
 const DEST = './priv/static'
-
 ```
 
 `config/dev.exs` - You need to change watchers to use Webpack.
