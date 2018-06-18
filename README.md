@@ -18,10 +18,11 @@ You get these out of the box:
 - CSS linting ([Stylelint])
 - Plain HTML & images
 
-Optional features (see [EXTRAS.md](_extras/EXTRAS.md)):
+Optional features (see `_extras`):
 
-- Sass
-- React hot module reloading
+- [Sass](_extras/)
+- [Phoenix support](_extras/)
+- [React hot module reloading](_extras/)
 
 [Babel]: http://babeljs.io/
 [PostCSS]: http://postcss.org/
