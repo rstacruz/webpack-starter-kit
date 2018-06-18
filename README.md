@@ -48,7 +48,7 @@ This kit is updated whenever I find something good to add; see [HISTORY.md](HIST
 
 ## Thanks
 
-**webpack-starter-kit** © 2016-2017, Rico Sta. Cruz. Released under the [MIT] License.<br>
+**webpack-starter-kit** © 2016-2018, Rico Sta. Cruz. Released under the [MIT] License.<br>
 Authored and maintained by Rico Sta. Cruz with help from contributors ([list][contributors]).
 
 > [ricostacruz.com](http://ricostacruz.com) &nbsp;&middot;&nbsp;
