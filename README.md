@@ -18,11 +18,12 @@ You get these out of the box:
 - CSS linting ([Stylelint])
 - Plain HTML & images
 
-Optional features (see `_extras`):
+Optional features (see `EXTRAS.md`):
 
-- [Sass](_extras/)
-- [Phoenix support](_extras/)
-- [React hot module reloading](_extras/)
+- [Sass](EXTRAS.md#sass)
+- [Phoenix support](EXTRAS.md#phoenix)
+- [React](EXTRAS.md#react)
+- [React hot module reloading](EXTRAS.md)
 
 [Babel]: http://babeljs.io/
 [PostCSS]: http://postcss.org/
@@ -33,14 +34,11 @@ Optional features (see `_extras`):
 
 ## Installation
 
-You can use the [automated installer script](_extras/install.sh) to unpack the files:
+Get node.js and Yarn. Then download the files into your projects:
 
 ```sh
-# Extracts to the current directory
-curl -sSL https://raw.githubusercontent.com/rstacruz/webpack-starter-kit/master/_extras/install.sh > /tmp/webpack-starter-kit.sh; bash /tmp/webpack-starter-kit.sh
+wget https://raw.githubusercontent.com/rstacruz/webpack-starter-kit/master/{yarn.lock,package.json,postcss.config.js,webpack.config.js,.stylelintrc}
 ```
-
-If you're allergic to downloaded Bash scripts, check the [simple installer](_extras/simple_install.sh).
 
 ## Updates
 
