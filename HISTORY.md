@@ -1,3 +1,16 @@
+## [v1.2.0]*
+> Unreleased
+
+- Add babel-polyfill in development.
+- Use minimal stats display.
+- Update npm packages.
+- Upgrade from Webpack 3.6 to 4.12.
+- Use [sanitize.css] instead of [normalize.css].
+
+[sanitize.css]: https://yarn.pm/sanitize.css
+[normalize.css]: https://yarn.pm/normalize.css
+[v1.2.0]: https://github.com/rstacruz/webpack-starter-kit/compare/v1.1.0...v1.2.0
+
 ## [v1.1.0]
 > Mar  4, 2017
 
