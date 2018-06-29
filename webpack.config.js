@@ -8,7 +8,7 @@ const LiveReloadPlugin = require('webpack-livereload-plugin')
 const DEBUG = process.env.NODE_ENV !== 'production'
 const SRC = './web'
 const DEST = './public'
-const POLYFILLS =  DEBUG ? [] : ['babel-polyfill']
+const POLYFILLS =  DEBUG ? [] : ['babel-polyfill', 'es6-promise/auto']
 
 module.exports = {
   cache: true,
