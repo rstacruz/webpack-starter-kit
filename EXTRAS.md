@@ -41,7 +41,7 @@ To use this with [Phoenix](http://www.phoenixframework.org), take note of a few 
 mkdir assets
 cd assets
 curl -L "https://github.com/rstacruz/webpack-starter-kit/archive/master.tar.gz" | tar xz
-mv webpack-starter-kit-master/{yarn.lock,package.json,postcss.config.js,webpack.config.js,.stylelintrc,web} .
+mv webpack-starter-kit-master/{yarn.lock,package.json,postcss.config.js,webpack.config.js,.stylelintrc,web/assets,web/css,web/js,web/html} .
 rm -rf webpack-starter-kit-master
 ```
 
