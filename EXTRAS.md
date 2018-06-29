@@ -40,16 +40,20 @@ To use this with [Phoenix](http://www.phoenixframework.org), take note of a few 
 ```bash
 mkdir assets
 cd assets
-wget https://raw.githubusercontent.com/rstacruz/webpack-starter-kit/master/{yarn.lock,package.json,postcss.config.js,webpack.config.js,.stylelintrc}
+curl -L "https://github.com/rstacruz/webpack-starter-kit/archive/master.tar.gz" | tar xz
+mv webpack-starter-kit-master/{yarn.lock,package.json,postcss.config.js,webpack.config.js,.stylelintrc,web} .
+rm -rf webpack-starter-kit-master
 ```
 
-You need to change the *source* and *destination* paths. You can just enter the following paths in the `install.sh` prompts.
+Under `webpack.config.js`, you need to change the *source* and *destination* paths. You can just enter the following paths in the `install.sh` prompts.
 
 ```js
 // Phoenix 1.3+ - be sure to do this in /assets/
 const SRC = './'
 const DEST = '../priv/static'
+```
 
+```js
 // Phoenix 1.2 and below
 const SRC = './web/static'
 const DEST = './priv/static'
