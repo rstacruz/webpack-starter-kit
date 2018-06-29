@@ -1,6 +1,6 @@
-## [v1.2.0]\*
+## [v1.2.0]
 
-> Unreleased
+> Jun 29, 2018
 
 - Add babel-polyfill in development.
 - Add a promise polyfill for IE11 browsers.
