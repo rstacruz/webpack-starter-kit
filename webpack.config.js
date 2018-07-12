@@ -26,6 +26,7 @@ module.exports = {
     'assets/css/app': [
       ...POLYFILLS,
       `${SRC}/css/app.js`
+    ]
   },
 
   output: {
