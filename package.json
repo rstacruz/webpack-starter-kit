@@ -1,31 +1,34 @@
 {
   "scripts": {
-    "build": "webpack --progress --colors -p",
+    "build": "webpack --progress --colors --mode production",
     "watch": "webpack --progress --colors --watch",
     "start": "webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "babel-core": "6.26.3",
-    "babel-loader": "7.1.4",
+    "babel-loader": "7.1.5",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "1.7.0",
     "clean-webpack-plugin": "0.1.19",
-    "copy-webpack-plugin": "4.5.1",
-    "css-loader": "0.28.11",
+    "copy-webpack-plugin": "4.5.2",
+    "css-loader": "1.0.0",
     "es6-promise": "^4.2.4",
-    "extract-text-webpack-plugin": "3.0.2",
+    "mini-css-extract-plugin": "0.4.1",
     "postcss-browser-reporter": "0.5.0",
     "postcss-cssnext": "3.1.0",
     "postcss-import": "11.1.0",
-    "postcss-loader": "2.1.5",
+    "postcss-loader": "2.1.6",
     "postcss-reporter": "5.0.0",
-    "sanitize.css": "5.0.0",
+    "sanitize.css": "6.0.0",
     "style-loader": "0.21.0",
     "stylelint": "9.3.0",
     "stylelint-config-standard": "18.2.0",
-    "webpack": "4.12.0",
+    "webpack": "4.16.1",
     "webpack-dev-server": "3.1.4",
     "webpack-livereload-plugin": "2.1.1"
+  },
+  "devDependencies": {
+    "webpack-cli": "3.0.8"
   }
 }
