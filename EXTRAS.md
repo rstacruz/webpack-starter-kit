@@ -67,7 +67,7 @@ const DEST = './priv/static'
 +  watchers: [
 +    node: [
 +      "node_modules/webpack/bin/webpack", "--watch-stdin", "--progress", "--colors",
-+      cd: Path.expand("../", __DIR__)
++      cd: Path.expand("../assets/", __DIR__)
 +    ]
 +  ]
 ```
